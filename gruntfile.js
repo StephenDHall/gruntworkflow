@@ -1,6 +1,16 @@
 module.exports = function(grunt) {
   grunt.initConfig({
 
+    minified : {
+      files: {
+        src: [
+          '/js/src/**/*.js',
+          '/js/src/*.js'
+        ],
+        dest: '/js/min/'
+      }
+    }
+
     concat : {
       options: {
         separator: '\n\n//------------------------------------------\n',
@@ -57,6 +67,7 @@ module.exports = function(grunt) {
 
   }); //initConfig
 
+  grunt.loadNpmTasks('grunt-minified');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
